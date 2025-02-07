@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Add recipe</title>
+    <script>
+        function addIngredient() {
+            var container = document.getElementById('ingredients');
+            var newInput = document.createElement('input');
+            newInput.text = "text";
+            newInput.name = "ingredients";
+            newInput.placeholder = "Type the ingredient";
+            container.appendChild(newInput);
+            container.appendChild(document.createElement("br"));
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Add recipe</h2>
+    <form action="/register" method="POST">
+        <label for="name">Recipe's name:</label>
+        <input type="text" name="name" required> <br>
+        <div>
+            <input type="text" name="description" placeholder="Describe the how to"> <br>
+        </div>
+        <label>Ingredients</label> <br>
+        <div id="ingredients">
+            <input type="text" name="ingredients" placeholder="Type an ingredient"> <br>
+        </div>
+        <button type="button" onclick="addIngredient()">Add ingredient</button>
+        <br><br>
+        <button type="submit">Register</button>
+
+    </form>
+</body>
+
+</html>
