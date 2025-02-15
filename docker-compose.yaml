@@ -1,0 +1,10 @@
+services:
+  db:
+    image: mongo:latest
+    restart: always
+    ports:
+      - "27017:27017"
+    expose:
+      - '27017'
+    volumes:
+      - /Users/leticiaocada/Desktop/mongodb:/data/db

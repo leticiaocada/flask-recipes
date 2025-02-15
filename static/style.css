@@ -1,0 +1,60 @@
+/* Import a Google Font for a handwritten effect */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans:wght@300;400;600&display=swap');
+
+body {
+    background-color: #fff8e1; /* Light warm background */
+    font-family: 'Open Sans', sans-serif;
+    color: #5d4037; /* Warm brown text */
+    text-align: center;
+    padding: 20px;
+}
+
+h2 {
+    font-family: 'Pacifico', cursive;
+    color: #d84315; /* Deep orange */
+    font-size: 2rem;
+}
+
+form {
+    background: #ffe0b2;
+    padding: 20px;
+    max-width: 400px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin: 5px 0;
+    border: 2px solid #d84315;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #fff;
+}
+
+button {
+    background: #ff7043;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #e64a19;
+}
+
+#ingredients {
+    margin-bottom: 15px;
+}

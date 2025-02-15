@@ -6,22 +6,23 @@
         function addIngredient() {
             var container = document.getElementById('ingredients');
             var newInput = document.createElement('input');
-            newInput.text = "text";
+            newInput.type = "text";
             newInput.name = "ingredients";
-            newInput.placeholder = "Type the ingredient";
+            newInput.placeholder = "Type an ingredient";
             container.appendChild(newInput);
             container.appendChild(document.createElement("br"));
         }
     </script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
-    <h2>Add recipe</h2>
+    <h2>Your food recipe</h2>
     <form action="/register" method="POST">
-        <label for="name">Recipe's name:</label>
-        <input type="text" name="name" required> <br>
+        <label for="name">Recipe</label>
+        <input type="text" name="name" placeholder="Name"> <br>
         <div>
-            <input type="text" name="description" placeholder="Describe the how to"> <br>
+            <input type="text" name="description" placeholder="Description"> <br>
         </div>
         <label>Ingredients</label> <br>
         <div id="ingredients">

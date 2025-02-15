@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Search for a recipe</title>
+        <script>
+            function addIngredient(){
+                var container = document.getElementById('ingredients');
+                var newInput = document.createElement('input');
+                newInput.type = "text";
+                newInput.name = "ingredients";
+                newInput.placeholder = "Type an ingredient";
+                container.appendChild(newInput);
+                container.appendChild(document.createElement("br"));
+            }
+
+            function searchrecipe(){
+                let inputs = document.getElementByName("ingredients");
+                let ingredients = [];
+
+                for(let input of inputs) {
+                    if (input.value.trim() != ""){
+                        ingredients.push(input.value.trim());
+                    }
+                }
+
+                fetch("/searchrecipe", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({ingredients : ingredients})
+                })
+                .then(response => response.JSON())
+                .then(data => {
+                    let resultDiv = document.getElementById("results");
+                    resultDiv.innerHTML = "<h3>Recipes found<h3>";
+                    data.forEach(recipe => {
+                        resultDiv.innerHTML += '<p><strong>${recipe.name}</strong>: ${recipe.ingredients.join(", ")}</p>';
+                    });
+                });
+            }
+        </script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <h2>Which ingredients do you have?</h2>
+        <div id="ingredients">
+            <input type="text" name="ingredients" placeholder="type an ingredient">
+        </div>
+        <button type="button" onclick="addIngredient()">Add ingredient</button>
+        <br><br>
+        <button type="button" onclick="searchRecipe()">Search</button>
+        <br><br>
+        <div id="results"></div>
+    </body>
+</html>
